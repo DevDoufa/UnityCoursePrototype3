@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 10;
+    private float speed = 0;
     private PlayerController playerControllerScript;
     private float leftBound = -10;
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = playerControllerScript.speed;
         if (!playerControllerScript.gameOver)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
@@ -25,5 +26,8 @@ public class MoveLeft : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
+
+
 }
